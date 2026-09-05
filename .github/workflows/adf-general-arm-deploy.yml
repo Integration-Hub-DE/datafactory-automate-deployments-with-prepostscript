@@ -78,6 +78,13 @@ jobs:
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
+    - name: Azure PowerShell Login
+      uses: azure/powershell@v2
+      with:
+        inlineScript: |
+          Get-AzContext
+          azPSVersion: "latest"
+
     - name: Run Pre-Deployment Script
       shell: pwsh
       run: |
