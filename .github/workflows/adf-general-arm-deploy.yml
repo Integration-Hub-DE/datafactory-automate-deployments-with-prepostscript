@@ -77,6 +77,16 @@ jobs:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+    - name: Run Pre-Deployment Script
+      shell: pwsh
+      run: |
+        ./Scripts/PrePostDeploymentScript.ps1 `
+        -armTemplate "ArmTemplates/ARMTemplateForFactory.json" `
+        -ResourceGroupName "${{ secrets.AZURE_RESOURCEGROUP_NAME }}" `
+        -DataFactoryName "${{ secrets.DESTINATION_DATA_FACTORY }}" `
+        -predeployment $true `
+        -deleteDeployment $false
   
     - name: Deploy ARM Template
       uses: azure/arm-deploy@v2
@@ -89,3 +99,13 @@ jobs:
           ArmTemplates/ARMTemplateParametersForFactory.json 
           factoryName=${{ secrets.DESTINATION_DATA_FACTORY }}
         deploymentMode: Incremental
+
+    - name: Run Post-Deployment Script
+      shell: pwsh
+      run: |
+        ./Scripts/PrePostDeploymentScript.ps1 `
+        -armTemplate "ArmTemplates/ARMTemplateForFactory.json" `
+        -ResourceGroupName "${{ secrets.AZURE_RESOURCEGROUP_NAME }}" `
+        -DataFactoryName "${{ secrets.DESTINATION_DATA_FACTORY }}" `
+        -predeployment $false `
+        -deleteDeployment $true
