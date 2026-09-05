@@ -1,4 +1,4 @@
-# Azure Data Factory Automatic Deployment using ARM template (ARMTemplateForFactory and ARMTemplateParametersForFactory)
+# Azure Data Factory Automatic Deployment using ARM template with PrePostDeploymentScript (ARMTemplateForFactory and ARMTemplateParametersForFactory)
 
 ### Overview
 
