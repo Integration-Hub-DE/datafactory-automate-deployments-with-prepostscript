@@ -77,18 +77,19 @@ jobs:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        enable-AzPSSession: true
 
     - name: Azure PowerShell Login
       uses: azure/powershell@v2
       with:
+        azPSVersion: "latest"
         inlineScript: |
           Get-AzContext
-          azPSVersion: "latest"
 
     - name: Run Pre-Deployment Script
       shell: pwsh
       run: |
-        ./Scripts/PrePostDeploymentScript.ps1 `
+        ./scripts/PrePostDeploymentScript.ps1 `
         -armTemplate "ArmTemplates/ARMTemplateForFactory.json" `
         -ResourceGroupName "${{ secrets.AZURE_RESOURCEGROUP_NAME }}" `
         -DataFactoryName "${{ secrets.DESTINATION_DATA_FACTORY }}" `
@@ -110,7 +111,7 @@ jobs:
     - name: Run Post-Deployment Script
       shell: pwsh
       run: |
-        ./Scripts/PrePostDeploymentScript.ps1 `
+        ./scripts/PrePostDeploymentScript.ps1 `
         -armTemplate "ArmTemplates/ARMTemplateForFactory.json" `
         -ResourceGroupName "${{ secrets.AZURE_RESOURCEGROUP_NAME }}" `
         -DataFactoryName "${{ secrets.DESTINATION_DATA_FACTORY }}" `
