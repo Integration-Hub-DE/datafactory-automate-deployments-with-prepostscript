@@ -24,7 +24,9 @@ Continuous Deployment (CD)
 
 - Downloads generated deployment artifacts.
 - Authenticates with Azure using a Service Principal.
+- Perform a pre-validation using Pre-Post script.
 - Deploys ARM templates to the destination resource group.
+- Perform a post-validation using Pre-Post script.
 - Updates the target Azure Data Factory environment.
 - Supports environment-specific overrides through deployment parameters and GitHub Secrets.
 
@@ -34,7 +36,7 @@ Continuous Deployment (CD)
 
 - Azure Data Factory using Git integration
 - GitHub repository connected to ADF
-- Service Principal with eequired Azure RBAC permissions
+- Service Principal with required Azure RBAC permissions
 - build folder containing package.json
 - ARM template generation enabled
 
@@ -173,13 +175,13 @@ Navigate to **Actions** in your GitHub repository and create a new workflow.
 Copy or download the workflow file:
 
 ```text
-.github/workflows/adf-general-arm-deploy.yml
+.github/workflows/adf-general-arm-deploy.yml and Scripts/PrePostDeploymentScript.ps1
 ```
 
 from this repository and add it to:
 
 ```text
-.github/workflows/<your-deployment-file-name>.yml
+.github/workflows/<your-deployment-file-name>.yml and Scripts/PrePostDeploymentScript.ps1
 ```
 
 Update the workflow configuration, GitHub Secrets, Azure resources, and other parameters as described in the previous sections of this document.
