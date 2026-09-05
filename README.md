@@ -155,6 +155,8 @@ ADF resources are highly interconnected. Pipelines, datasets, triggers, and link
  │      └── adf-general-arm-deploy.yml
  ├── build
  │      └── package.json
+ ├── Scripts
+ │      └── PrePostDeploymentScript.ps1
  └── README.md
 ```
 
