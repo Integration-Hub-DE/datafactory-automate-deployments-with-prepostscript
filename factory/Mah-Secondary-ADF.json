@@ -1,0 +1,15 @@
+{
+	"name": "Mah-Secondary-ADF",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "56295b15-cd01-4e0b-bca2-7bb0e5f82574",
+		"tenantId": "16b3c013-d300-468d-ac64-7eda0820b6d3"
+	}
+}
