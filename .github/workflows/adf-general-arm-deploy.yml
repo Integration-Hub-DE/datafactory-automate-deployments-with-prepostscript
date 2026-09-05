@@ -1,4 +1,4 @@
-name: ADF CI-CD using General ARM Templates
+name: ADF CI-CD using General ARM Templates with Pre-Post Deployment Script
 
 # Controls when the workflow will run
 
