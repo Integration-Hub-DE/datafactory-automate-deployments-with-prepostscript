@@ -175,13 +175,13 @@ Navigate to **Actions** in your GitHub repository and create a new workflow.
 Copy or download the workflow file:
 
 ```text
-.github/workflows/adf-general-arm-deploy.yml and Scripts/PrePostDeploymentScript.ps1
+.github/workflows/adf-general-arm-deploy.yml and scripts/PrePostDeploymentScript.ps1
 ```
 
 from this repository and add it to:
 
 ```text
-.github/workflows/<your-deployment-file-name>.yml and Scripts/PrePostDeploymentScript.ps1
+.github/workflows/<your-deployment-file-name>.yml and scripts/PrePostDeploymentScript.ps1
 ```
 
 Update the workflow configuration, GitHub Secrets, Azure resources, and other parameters as described in the previous sections of this document.
